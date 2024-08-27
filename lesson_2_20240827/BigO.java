@@ -91,6 +91,6 @@ public class BigO {
 
         System.out.println("Сумма (O(n))= "+sum(array));
 
-        bubleFor(6);
+        doubleFor(6);
     }
 }
