@@ -68,8 +68,8 @@ function sortBubble(arr) { //O(n^2)
 
 
     function nlog(n) {
-        for(i = 0; i < n; i++) //const = 3, (1 + (n) + (n)) times = n
-            for(j = 1; j < n; j = j * 2) // const = 4,   log 2 (6) = 3 log 3 (6 ) ~ 2    times = log n
+        for(i = 0; i < n; i++) //const = 3, (1 + (1*n) + (1*n)) times = n
+            for(j = 1; j < n; j = j * 2) // const = 4 (1 + 1*n*2 + 1*n*2 ),   log 2 (6) = 3 log 3 (6 ) ~ 2    times = log n
                 System.out.println("Hello ["+i+"] ["+j+"]"); //константное время //+1*n
     }
     // (1+2n) * (1+3*logn) = 1 +3logn+ 2n + 6n*logn =  3*logn + 2n + 6n*log(n)  = O(n log(n))
