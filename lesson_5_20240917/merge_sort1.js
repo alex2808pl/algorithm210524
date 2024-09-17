@@ -4,7 +4,7 @@ function mergeSort(arr) {
         return;
     }
 
-    let mid = (lengthArr % 2 != 0) ? lengthArr/2 + 1 : lengthArr/2; //левый подмассив хочу больше, когда не парный размер
+    let mid = Math.ceil(arr.length / 2); //левый подмассив хочу больше, когда не парный размер
     let leftArr = []; // левый подмассив
     let rightArr = []; // правый подмассив
 
@@ -66,4 +66,6 @@ function merge(arr, leftArr, rightArr) {
     console.log(leftArr+" = "+rightArr+" ===> "+arr);
 }
 
-console.log(mergeSort([38, 27, 43, 3, 9, 82, 10]));
+let sortArray = [38, 27, 43, 3, 9, 82, 10];
+mergeSort(sortArray);
+console.log(sortArray);
