@@ -11,6 +11,7 @@ function quickSort(array, start, end) {
 }
 
 function partition(array, start, end) {
+    
     let pivot = array[end]; // choose pivot element
     let indexPivot = start; // Index of smaller element and indicates the right position
 
