@@ -1,7 +1,7 @@
 package lesson_9_20241015;
 
 public class MyLinkedList {
-    private Node head; //ccылка на первый элемент
+    protected Node head; //ccылка на первый элемент
 
     public Node getHead() {
         return head;
