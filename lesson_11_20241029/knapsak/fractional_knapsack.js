@@ -40,7 +40,6 @@ class FractionalKnapsack {
         return totalValue;
 
     }
-
     
     print(list) {
         for (let e of list) {
