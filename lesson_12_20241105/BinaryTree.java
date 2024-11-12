@@ -93,4 +93,81 @@ public class BinaryTree {
         }
         return current; // возвращаем найденный элемент
     }
+
+   public boolean delete(int value) 
+   {
+       Node currentNode = root;
+       Node parentNode = root;
+       boolean isLeftChild = true;
+       // ищем элемент в дереве по значению
+       while (currentNode.getValue() != value) { 
+           parentNode = currentNode;
+           if (value < currentNode.getValue()) { 
+               isLeftChild = true;
+               currentNode = currentNode.getLeft();
+           }
+           else { 
+               isLeftChild = false;
+               currentNode = currentNode.getRight();
+           }
+           if (currentNode == null)
+               return false; 
+       }
+
+       
+       if (currentNode.getLeft() == null && currentNode.getRight() == null) {  // это лист
+           if (currentNode == root) 
+               root = null;
+           else if (isLeftChild)
+               parentNode.setLeft(null); 
+           else
+               parentNode.setRight(null);
+       }
+       else if (currentNode.getRight() == null) {  //справа нет дочерних
+           if (currentNode == root)
+               root = currentNode.getLeft();
+           else if (isLeftChild)
+               parentNode.setLeft(currentNode.getLeft());
+           else
+               parentNode.setRight(currentNode.getLeft());
+       }
+       else if (currentNode.getLeft() == null) {  //слева нет дочерних
+           if (currentNode == root)
+               root = currentNode.getRight();
+           else if (isLeftChild)
+               parentNode.setLeft(currentNode.getRight());
+           else
+               parentNode.setRight(currentNode.getRight());
+       }
+       else { // и справа и слева есть дочерние элементы
+           Node heir = receiveHeir(currentNode);
+           if (currentNode == root)
+               root = heir;
+           else if (isLeftChild)
+               parentNode.setLeft(heir);
+           else
+               parentNode.setRight(heir);
+       }
+       return true; 
+   }
+   
+   private Node receiveHeir(Node node) {
+       Node parentNode = node;
+       Node heirNode = node;
+       Node currentNode = node.getRight(); 
+       while (currentNode != null) 
+       {
+           parentNode = heirNode;
+           heirNode = currentNode;
+           currentNode = currentNode.getLeft(); 
+       }
+       
+       if (heirNode != node.getRight()) 
+       { 
+           parentNode.setLeft(heirNode.getRight());
+           heirNode.setRight(node.getRight());
+       }
+       return heirNode;
+   }
+
 }

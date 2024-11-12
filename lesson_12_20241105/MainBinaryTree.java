@@ -19,6 +19,9 @@ public class MainBinaryTree {
         System.out.println(bt.find(2)); // найдено
 
         System.out.println(bt.find(5)); // не найдено
+
+        System.out.println(bt.delete(1));
+        bt.print();
     
     }
 
