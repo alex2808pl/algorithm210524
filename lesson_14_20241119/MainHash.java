@@ -1,5 +1,9 @@
 package lesson_14_20241119;
 
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Set;
+
 public class MainHash {
     public static void main(String[] args) {
 
@@ -37,7 +41,16 @@ public class MainHash {
         Integer int1 = new Integer(5);
         System.out.println("Hash int1 = "+int1.hashCode());
 
-        //Set<Integer> 
+        
+        //Hashtable<Integer, String>  tableHash = new Hashtable<>(); //устаревший
+        // 0(1) - все операции 
+        Set<Integer>  setHash = new HashSet<>();
+
+
+
+
+
+
          
 
     }
